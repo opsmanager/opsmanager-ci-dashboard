@@ -1,8 +1,8 @@
 module Jenkins
   def self.initialize
     @url_base = "http://opsci.opsmanager.com/"
-    @auth_username = "opsmanager-dev"
-    @auth_pwd = "pineapple45kopi"
+    @auth_username = ENV["JENKINS_USER"]
+    @auth_pwd = ENV["JENKINS_PWD"]
     @accept_pattern = '^opsmanager.*'
     @jobs_list = load_jobs
   end
