@@ -1,21 +1,23 @@
 <a data-bind-href="link">
-  <div class="build-wrapper">
-    <div class="title-wrapper">
+  <div class="flex-grid">
+    <div class="title-wrapper col">
       <h1 data-bind="name"></h1>
     </div>
 
-    <div class="meta-data-wrapper">
-      <p class="context-info">
-	<span data-showif="time" data-bind="time | dateFormat"></span>
-      </p>
-      <p class="updated-at" data-bind="updatedAtMessage"></p>
-    </div>
-
-    <div class="health-wrapper">
+    <div class="health-wrapper col">
       <p data-showif="show-health">
 	<img data-bind-src="image"></img>
 	<strong data-bind="health"></strong>% <span class="small">of recent builds passed</span>
       </p>
+    </div>
+  </div>
+
+  <div class="flex-grid">
+    <div class="meta-data-wrapper col">
+      <p class="context-info">
+	<span data-showif="time" data-bind="time | dateFormat"></span>
+      </p>
+      <p class="updated-at" data-bind="updatedAtMessage"></p>
     </div>
   </div>
 </a>
