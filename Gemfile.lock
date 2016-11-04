@@ -5,6 +5,7 @@ GEM
     blanket_wrapper (3.0.2)
       httparty
       recursive-open-struct
+    byebug (9.0.6)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -68,6 +69,7 @@ PLATFORMS
 
 DEPENDENCIES
   blanket_wrapper
+  byebug
   smashing
 
 BUNDLED WITH

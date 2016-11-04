@@ -1,2 +1,5 @@
 *DS_STORE
 history.yml
+log
+*\#*
+.byebug_history

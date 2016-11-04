@@ -1,7 +1,10 @@
 require 'dashing'
 
 configure do
-  set :auth_token, 'YOUR_AUTH_TOKEN'
+
+  Dir["config/initializers/**/*.rb"].sort.each do |config_file_path|
+    require File.join(Dir.pwd, config_file_path)
+  end
 
   helpers do
     def protected!
