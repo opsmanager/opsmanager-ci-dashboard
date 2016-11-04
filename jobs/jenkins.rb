@@ -16,7 +16,7 @@ def get_url(url, auth = nil)
 end
 
 def get_jenkins_build_health(build_id)
-  url = "http://opsci.opsmanager.com/job/opsmanager-fast/api/json?tree=builds[status,timestamp,id,result,duration,url,fullDisplayName]"
+  url = "http://opsci.opsmanager.com/job/#{build_id}/api/json?tree=builds[status,timestamp,id,result,duration,url,fullDisplayName]"
   auth = [ 'auth', 'pwd' ]
 
   build_info = get_url URI.encode(url), auth
@@ -39,5 +39,7 @@ def calculate_health(successful_count, count)
 end
 
 SCHEDULER.every '20s', first_in: 0 do
-  send_event 'opsmanager-fast', get_jenkins_build_health('opsmanager-fast')
+  config.builds.each do |build_id, server|
+    send_event build_id, get_jenkins_build_health(build_id)
+  end
 end
