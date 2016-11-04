@@ -1,14 +1,14 @@
 <% content_for :title do %>OpsManager CI<% end %>
 <div class="gridster">
   <ul>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
-      <div data-id="freshdesk" data-view="List" data-unordered="true" data-title="Tickets" data-moreinfo="Helpdesk tickets"></div>
+    <li data-row="1" data-col="1" data-sizex="3" data-sizey="4">
+      <% Jenkins.get_jobs_list.each do |build| %>
+      <div data-id="<%= build['name'] %>" data-view="Build" data-unordered="true" data-server="opsci"></div>
+      <% end %>
     </li>
 
-    <% Jenkins.get_jobs_list.each do |build| %>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="<%= build['name'] %>" data-view="Build" data-unordered="true" data-server="opsci"></div>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="4">
+      <div data-id="freshdesk" data-view="List" data-unordered="true" data-title="Tickets" data-moreinfo="Helpdesk tickets"></div>
     </li>
-    <% end %>
   </ul>
 </div>

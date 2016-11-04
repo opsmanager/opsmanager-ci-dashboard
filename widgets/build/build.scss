@@ -1,0 +1,21 @@
+.widget-build {
+  &:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  display: inline-block !important;
+  width: 100% !important;
+  height: 100px !important;
+
+  h1 {
+    font-size: 1em;
+  }
+
+  .meta-data-wrapper {
+    font-size: 0.75em;
+
+    .updated-at {
+      position: inherit !important;
+    }
+  }
+}

@@ -8,6 +8,7 @@ def get_jenkins_build_health(build)
   builds_with_status = builds.select { |build| !build['result'].nil? }
   successful_count = builds_with_status.count { |build| build['result'] == 'SUCCESS' }
   latest_build = builds_with_status.first
+
   {
     name: latest_build['fullDisplayName'],
     status: latest_build['result'] == 'SUCCESS' ? SUCCESS : FAILED,

@@ -5,12 +5,11 @@ class Dashing.Build extends Dashing.Widget
   Batman.Filters.durationFormat = (duration) ->
     if /^[0-9]*$/.test(duration) then moment.duration(duration, 'seconds').humanize() else duration
 
-  class Dashing.BuildWindow extends Dashing.Widget
-    onData: (data) ->
-      if data.status == 'Failed'
-        $(@node).css('background-color', '#a73737')
-      else if data.status == 'Successful'
-        $(@node).css('background-color', '#03A06E')
+  onData: (data) ->
+    if data.status == 'Failed'
+      $(@node).css('background-color', '#a73737')
+    else if data.status == 'Successful'
+      $(@node).css('background-color', '#03A06E')
 
     @accessor 'image', ->
       health = @get('health')
