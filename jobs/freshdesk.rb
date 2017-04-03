@@ -10,7 +10,7 @@ end
 SCHEDULER.every '10m', first_in: 0 do
   if freshdesk_api
     begin
-      tickets = freshdesk_api.tickets.get
+      tickets = freshdesk_api.tickets.get(params: { filter: 'new_and_my_open' })
       display_tickets = tickets.map do |ticket|
         { label: ticket.subject, value:  ticket.due_by }
       end
